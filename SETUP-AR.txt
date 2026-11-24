@@ -1,0 +1,8 @@
+RespiraRest — سجل الزوار
+١. احتفظي بنسخة احتياطية من مستودع GitHub، ثم ارفعي محتويات هذا الملف المضغوط إلى جذر المستودع الحالي (لا ترفعي المجلد الخارجي).
+٢. في Cloudflare Dashboard > Workers & Pages > D1، أنشئي قاعدة باسم respirarest-visitors. افتحي Console والصقي محتويات schema.sql ونفذيها.
+٣. في مشروع Pages الحالي > Settings > Bindings، أضيفي D1 database binding بالاسم DB واختاري القاعدة الجديدة.
+٤. في Settings > Variables and Secrets أضيفي Secret بالاسم ADMIN_TOKEN وقيمة طويلة عشوائية خاصة بك (لا تضعيها في GitHub). طبقي على Production، وعلى Preview فقط عند الحاجة.
+٥. أعيدي النشر من GitHub؛ لا تحتاجين build command، ومجلد الإخراج هو الجذر (.) كما في الموقع الثابت الحالي. يجب أن يكون functions في جذر المشروع. إذا كان المشروع يستخدم Direct Upload بدل Git integration، استخدمي Wrangler للنشر مع Pages Functions؛ رفع ZIP من لوحة Cloudflare وحده لا يشغّل functions.
+٦. افتحي /visitors/ وجربي رسالة، ثم افتحي /admin/ وأدخلي الرمز واعتمديها. تأكدي من ظهورها على جهاز آخر، ثم احذفي رسالة الاختبار.
+الخريطة تستخدم Leaflet وOpenStreetMap وتحتاج اتصالًا بالإنترنت. الرسائل لا تظهر إلا بعد اعتمادها. يحدد الزائر موقعًا تقريبيًا يدويًا. يُنصح بتفعيل حد الطلبات أو Turnstile قبل نشر الرابط على نطاق واسع. لا تجمعي بيانات مرضى أو معلومات صحية حساسة.

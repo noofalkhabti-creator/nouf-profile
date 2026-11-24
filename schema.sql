@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS visitors (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL,country TEXT NOT NULL,city TEXT NOT NULL,role TEXT NOT NULL,message TEXT NOT NULL,rating INTEGER NOT NULL,lat REAL NOT NULL,lng REAL NOT NULL,status TEXT NOT NULL DEFAULT 'pending',created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%S','now')));
+CREATE INDEX IF NOT EXISTS visitors_status ON visitors(status);
